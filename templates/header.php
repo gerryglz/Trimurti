@@ -1,5 +1,5 @@
 <header class="banner">
-  <div class="container">
+  <div class="container-fluid px-0">
     <nav class="navbar navbar-expand-md nav-primary">
       <a class="navbar-brand brand" href="<?= esc_url(home_url('/')); ?>">
         <img src="/docs/4.1/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
