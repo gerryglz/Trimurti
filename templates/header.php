@@ -2,7 +2,11 @@
   <div class="container-fluid px-0">
     <nav class="navbar navbar-expand-md nav-primary">
       <a class="navbar-brand brand" href="<?= esc_url(home_url('/')); ?>">
-        <img src="/docs/4.1/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
+        <?php 
+        $custom_logo_id = get_theme_mod( 'custom_logo' );
+        $image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+        ?>
+        <img src="<?php echo $image[0]; ?>" width="194" height="65" alt="" class="theme-icon">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
