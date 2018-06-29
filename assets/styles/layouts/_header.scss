@@ -7,45 +7,91 @@ header{
 	z-index: 999;
 }
 .nav-primary{
-	background: -moz-linear-gradient(top, rgba(0,0,0,0.4) 0%, rgba(255,255,255,0) 100%);
-	background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%,rgba(255,255,255,0) 100%);
-	background: -webkit-linear-gradient(top, rgba(0,0,0,0.4) 0%,rgba(255,255,255,0) 100%);
-	height: 6.25rem;
+	background: -moz-linear-gradient(top, rgba(0,0,0,0.6) 0%, rgba(255,255,255,0) 100%);
+	background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(255,255,255,0) 100%);
+	background: -webkit-linear-gradient(top, rgba(0,0,0,0.6) 0%,rgba(255,255,255,0) 100%);
+	height: 5.25rem;
 	transition: all .3s;
+	@include media-breakpoint-up(md) {
+		height: 6.25rem;
+	}
 	&.scrolled{
 		background: $white;
 		.navbar-nav{
 			.menu-item{
 				a{
-					color: $black;
+					@include media-breakpoint-up(md) {
+						color: $black;
+					}
+				}
+				&:last-of-type{
+					a{
+						color: $white;
+					}
 				}
 			}
 		}
+		.navbar-toggler{
+			color: $black;
+		}
+	}
+	@include media-breakpoint-down(md) {
+		padding: 0.5rem 0;
 	}
 	.navbar-brand{
 		padding: 0;
+		@include media-breakpoint-down(md) {
+			padding: 0 1rem;
+			img{
+				height: 3.75rem;
+				width: auto;
+			}
+		}
+	}
+	.navbar-toggler{
+		color: $white;
+		@include media-breakpoint-down(md) {
+			margin: 0.5rem 1rem;
+		}	
 	}
 	.navbar-nav{
 		.menu-item{
 			@extend .nav-item;
+			@include media-breakpoint-down(md) {
+				padding: .5rem 0;
+			}
 			a{
 				@extend .nav-link;
 				color: $white;
 				text-transform: uppercase;
 				transition: all .3s;
-				padding: .5rem 2rem;
+				padding: .5rem 1rem;
 				font-size: 0.875rem;
-				&.enroll{
-					
+				@include hover-focus {
+					color: $secondary;		
 				}
 			}
 			&:last-of-type{
 				a{
 					background: $secondary;
 					border-radius: 2rem;
-					margin:0 2rem;
+					margin:0 1rem;
+					text-align: center;
+					border: 1px solid transparent;
+					@include hover-focus {
+						color: $secondary;
+						border-color: $secondary;		
+						background: transparent;
+					}
 				}
 			}
+		}
+	}
+	.navbar-collapse{
+		@include media-breakpoint-down(sm) {
+			background: rgba($black, 0.85);
+			padding: 1.5rem 0;
+			margin-top: 1rem;
 		}
 	}
 }

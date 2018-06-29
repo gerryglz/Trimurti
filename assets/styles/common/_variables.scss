@@ -2,6 +2,20 @@
 $main-sm-columns:       12;
 $sidebar-sm-columns:    4;
 
+$container-max-widths: (
+  sm: 540px,
+  md: 768px,//720px,
+  lg: 990px,//960px,
+  xl: 1140px
+) !default;
 
 $primary: #9e1733;
 $secondary: #2db8c7;
+
+/* Home Slider */
+$slider-height:	580px;
+$slider-height-sm: 400px;
+
+/* Featured Courses */
+$featured-course-height: 400px;
+$featured-course-height-md: 280px;

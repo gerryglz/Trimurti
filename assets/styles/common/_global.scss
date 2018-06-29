@@ -1,1 +1,21 @@
+body{
+	font-family: 'Open Sans', sans-serif;
+}
 
+.section-header{
+	@extend .h2;
+	text-align: center;
+	position: relative;
+	margin: 2rem 0;
+	padding-bottom: 0.5rem;
+	&:after{
+		content: '';
+		height: 1px;
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 400px;
+		background: $secondary;
+	}
+}

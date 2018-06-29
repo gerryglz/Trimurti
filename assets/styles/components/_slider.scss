@@ -1,0 +1,46 @@
+#homeCarousel{
+		height: $slider-height-sm;
+	@include media-breakpoint-up(md) {
+		height: $slider-height;
+	}
+	.carousel-inner{
+		height: $slider-height-sm;
+		@include media-breakpoint-up(md) {
+			height: $slider-height;
+		}
+		.carousel-item{
+			height: $slider-height-sm;
+			@include media-breakpoint-up(md) {
+				height: $slider-height;
+			}
+			overflow: hidden;
+			.carousel-caption{
+				bottom: 50px;
+				@include media-breakpoint-down(md) {
+					p{
+						font-size: 1.5rem !important;
+					}
+				}
+			}
+			.carousel-image{
+				display: block;
+				position: absolute;
+				width: auto;
+				height: $slider-height;
+				@include media-breakpoint-down(sm) {
+					height: $slider-height-sm;
+				}
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				@include media-breakpoint-up(lg) {
+					width: 117%;
+					height: auto;
+				}
+				@include media-breakpoint-up(xl) {
+					width: 105%;
+				}
+			}
+		}
+	}
+}

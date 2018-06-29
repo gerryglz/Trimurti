@@ -1,0 +1,39 @@
+.featured-courses{
+	.featured-course{
+		height: auto;
+		@include media-breakpoint-up(md) {
+			height: $featured-course-height;
+		}
+		.course-img{
+			background-size: cover;
+			background-position: center;
+			background-repet: no-repeat;
+			height: 280px;
+			
+			@include media-breakpoint-up(md) {
+				height: $featured-course-height;
+			}
+		}
+		.course-info{
+			padding: 1rem;
+			p{
+				margin-bottom: 0.5rem;
+			}
+			.course-title{
+				@extend .h3;
+				font-weight: 700;
+			}
+			.course-style{
+				font-size: 1.125rem;
+				font-weight: 600;
+			}
+			.course-price{
+				font-size: 1.125rem;
+				font-weight: 300;	
+			}
+			.course-description{
+				margin-bottom: 1.5rem;
+			}
+		}
+	}
+}

@@ -1,0 +1,42 @@
+.footer{
+	background: $white;
+	padding: 1rem 0;
+	position: relative;
+	.flocation{
+		@include media-breakpoint-up(sm) {
+			&:first-of-type{
+				@extend .offset-md-2
+			}
+		}
+		.flocation-title{
+			@extend .h3;
+			border-bottom:1px dashed #6c757d;
+		}
+		.flocation-description{
+			color: #6c757d;
+		}
+	}	
+	.menu{
+		@extend .nav;
+		justify-content: center;
+		.menu-item{
+			@extend .nav-item;
+			border: 2px solid $primary;
+			margin: 0 0.25rem;
+			width: 43px;
+			border-radius: 50%;
+			a{
+				@extend .nav-link;
+				padding: .5rem;
+				text-align: center;
+				font-size: .875rem;
+			}
+		}
+	}
+	.copyright{
+		font-weight: 700;
+		text-align: center;
+		font-size: .875rem;
+		padding: 1rem 0;
+	}
+}
