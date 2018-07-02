@@ -4,6 +4,9 @@
 		@include media-breakpoint-up(md) {
 			height: $featured-course-height;
 		}
+		@include media-breakpoint-down(sm) {
+			margin-bottom: 1.5rem;
+		}
 		.course-img{
 			background-size: cover;
 			background-position: center;
@@ -16,6 +19,10 @@
 		}
 		.course-info{
 			padding: 1rem;
+			@include media-breakpoint-down(sm) {
+				padding: 1.5rem 1rem;
+				text-align: left !important;
+			}
 			p{
 				margin-bottom: 0.5rem;
 			}

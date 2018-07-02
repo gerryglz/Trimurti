@@ -46,6 +46,12 @@ function mytheme_setup() {
 
 add_action('after_setup_theme', __NAMESPACE__ . '\\mytheme_setup');
 
+/* Color Shortcode */
+function section_grey( $atts, $content = null ) {
+  return '<div class="bg-grey">' . $content . '</div>';
+}
+add_shortcode( 'grey-bg',  __NAMESPACE__ . '\\section_grey' );
+
 // Register Custom Post Type
 function course_post_type() {
 
@@ -105,19 +111,45 @@ add_action( 'init', __NAMESPACE__ . '\\course_post_type', 0 );
 if(function_exists("register_field_group"))
 {
   register_field_group(array (
-    'id' => 'featured_course',
-    'title' => 'Featured',
+    'id' => 'acf_featured-course',
+    'title' => 'Featured Course',
     'fields' => array (
       array (
-        'key' => 'featured_course_key',
-        'label' => 'Featured',
-        'name' => 'featured',
+        'key' => 'field_5b399bc59503a',
+        'label' => 'Course Price',
+        'name' => 'course_price',
+        'type' => 'number',
+        'instructions' => 'Please add course price',
+        'default_value' => '',
+        'placeholder' => '',
+        'prepend' => '',
+        'append' => '',
+        'min' => '',
+        'max' => '',
+        'step' => '',
+      ),
+      array (
+        'key' => 'field_5b399c119503b',
+        'label' => 'Course Style',
+        'name' => 'course_style',
+        'type' => 'text',
+        'default_value' => '',
+        'placeholder' => '',
+        'prepend' => '',
+        'append' => '',
+        'formatting' => 'html',
+        'maxlength' => '',
+      ),
+      array (
+        'key' => 'field_5b394e17a8af0',
+        'label' => 'Featured Course',
+        'name' => 'featured_course',
         'type' => 'checkbox',
         'instructions' => 'Select if featured',
         'choices' => array (
-          'yes' => 'Featured Course'
+          'yes' => 'Featured Course',
         ),
-        'default_value' => '',
+        'default_value' => 'no',
         'layout' => 'vertical',
       ),
     ),
