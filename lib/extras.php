@@ -52,7 +52,7 @@ function section_grey( $atts, $content = null ) {
 }
 add_shortcode( 'grey-bg',  __NAMESPACE__ . '\\section_grey' );
 
-// Register Custom Post Type
+// Register Course Custom Post Type
 function course_post_type() {
 
   $labels = array(
@@ -102,6 +102,7 @@ function course_post_type() {
     'exclude_from_search'   => false,
     'publicly_queryable'    => true,
     'capability_type'       => 'page',
+    'menu_icon'             => 'dashicons-clipboard',
   );
   register_post_type( 'course', $args );
 
@@ -114,6 +115,18 @@ if(function_exists("register_field_group"))
     'id' => 'acf_featured-course',
     'title' => 'Featured Course',
     'fields' => array (
+      array (
+        'key' => 'field_5b394e17a8af0',
+        'label' => 'Featured Course',
+        'name' => 'featured_course',
+        'type' => 'checkbox',
+        'instructions' => 'Select if featured',
+        'choices' => array (
+          'yes' => 'Featured Course',
+        ),
+        'default_value' => 'no',
+        'layout' => 'vertical',
+      ),
       array (
         'key' => 'field_5b399bc59503a',
         'label' => 'Course Price',
@@ -141,16 +154,92 @@ if(function_exists("register_field_group"))
         'maxlength' => '',
       ),
       array (
-        'key' => 'field_5b394e17a8af0',
-        'label' => 'Featured Course',
-        'name' => 'featured_course',
-        'type' => 'checkbox',
-        'instructions' => 'Select if featured',
-        'choices' => array (
-          'yes' => 'Featured Course',
-        ),
-        'default_value' => 'no',
-        'layout' => 'vertical',
+        'key' => 'field_5b3f9381d10d1',
+        'label' => 'Course Location',
+        'name' => 'course_location',
+        'type' => 'text',
+        'instructions' => 'Add course location',
+        'default_value' => '',
+        'placeholder' => '',
+        'prepend' => '',
+        'append' => '',
+        'formatting' => 'html',
+        'maxlength' => '',
+      ),
+      array (
+        'key' => 'field_5b3f93c9b5571',
+        'label' => 'Course Discipline',
+        'name' => 'course_discipline',
+        'type' => 'text',
+        'instructions' => 'Add discipline',
+        'default_value' => '',
+        'placeholder' => '',
+        'prepend' => '',
+        'append' => '',
+        'formatting' => 'html',
+        'maxlength' => '',
+      ),
+      array (
+        'key' => 'field_5b3f93fd73294',
+        'label' => 'Course Date',
+        'name' => 'course_date',
+        'type' => 'date_picker',
+        'date_format' => 'yymmdd',
+        'display_format' => 'mm/dd/yy',
+        'first_day' => 1,
+      ),
+      array (
+        'key' => 'field_5b3f93c9b5578',
+        'label' => 'Course Duration',
+        'name' => 'course_duration',
+        'type' => 'text',
+        'instructions' => 'Add duration',
+        'default_value' => '',
+        'placeholder' => '',
+        'prepend' => '',
+        'append' => '',
+        'formatting' => 'html',
+        'maxlength' => '',
+      ),
+      array (
+        'key' => 'field_5b3f93c9b8578',
+        'label' => 'Course Venue',
+        'name' => 'course_venue',
+        'type' => 'text',
+        'instructions' => 'Add duration',
+        'default_value' => '',
+        'placeholder' => 'Tailwind Jungle Lodge',
+        'prepend' => '',
+        'append' => '',
+        'formatting' => 'html',
+        'maxlength' => '',
+      ),
+      array (
+        'key' => 'field_5b399bc59563a',
+        'label' => 'Course Vacancy',
+        'name' => 'course_vacancy',
+        'type' => 'number',
+        'instructions' => 'Add remaining seats',
+        'default_value' => '',
+        'placeholder' => '',
+        'prepend' => '',
+        'append' => '',
+        'min' => '',
+        'max' => '',
+        'step' => '',
+      ),
+      array (
+        'key' => 'field_5b7f93c9b8578',
+        'label' => 'Course Introduction',
+        'name' => 'course_intro',
+        'type' => 'textarea',
+        'instructions' => 'Add course introduction',
+        'default_value' => '',
+        'placeholder' => '',
+        'prepend' => '',
+        'append' => '',
+        'formatting' => 'html',
+        'maxlength' => '',
       ),
     ),
     'location' => array (
@@ -174,7 +263,7 @@ if(function_exists("register_field_group"))
   ));
 }
 
-// Register Custom Post Type
+// Register Foore Location Custom Post Type
 function flocation_post_type() {
 
   $labels = array(
@@ -224,13 +313,14 @@ function flocation_post_type() {
     'exclude_from_search'   => false,
     'publicly_queryable'    => true,
     'capability_type'       => 'page',
+    'menu_icon'             => 'dashicons-location',
   );
   register_post_type( 'flocation', $args );
 
 }
 add_action( 'init', __NAMESPACE__ . '\\flocation_post_type', 0 );
 
-// Register Custom Post Type
+// Register Slider Custom Post Type
 function home_slide_post_type() {
 
   $labels = array(
@@ -280,9 +370,181 @@ function home_slide_post_type() {
     'exclude_from_search'   => false,
     'publicly_queryable'    => true,
     'capability_type'       => 'page',
+    'menu_icon'             => 'dashicons-format-gallery',
   );
   register_post_type( 'home_slide', $args );
 
 }
 add_action( 'init', __NAMESPACE__ . '\\home_slide_post_type', 0 );
 
+
+// Register Course Custom Post Type
+function sites_post_type() {
+
+  $labels = array(
+    'name'                  => _x( 'Sites', 'Post Type General Name', 'text_domain' ),
+    'singular_name'         => _x( 'Site', 'Post Type Singular Name', 'text_domain' ),
+    'menu_name'             => __( 'Sites', 'text_domain' ),
+    'name_admin_bar'        => __( 'Post Type', 'text_domain' ),
+    'archives'              => __( 'Site Archives', 'text_domain' ),
+    'attributes'            => __( 'Site Attributes', 'text_domain' ),
+    'parent_item_colon'     => __( 'Parent Site:', 'text_domain' ),
+    'all_items'             => __( 'All Sites', 'text_domain' ),
+    'add_new_item'          => __( 'Add New Site', 'text_domain' ),
+    'add_new'               => __( 'Add New Site', 'text_domain' ),
+    'new_item'              => __( 'New Site', 'text_domain' ),
+    'edit_item'             => __( 'Edit Site', 'text_domain' ),
+    'update_item'           => __( 'Update Site', 'text_domain' ),
+    'view_item'             => __( 'View Site', 'text_domain' ),
+    'view_items'            => __( 'View Sites', 'text_domain' ),
+    'search_items'          => __( 'Search Site', 'text_domain' ),
+    'not_found'             => __( 'Not found', 'text_domain' ),
+    'not_found_in_trash'    => __( 'Not found in Trash', 'text_domain' ),
+    'featured_image'        => __( 'Featured Image', 'text_domain' ),
+    'set_featured_image'    => __( 'Set featured image', 'text_domain' ),
+    'remove_featured_image' => __( 'Remove featured image', 'text_domain' ),
+    'use_featured_image'    => __( 'Use as featured image', 'text_domain' ),
+    'insert_into_item'      => __( 'Insert into item', 'text_domain' ),
+    'uploaded_to_this_item' => __( 'Uploaded to this item', 'text_domain' ),
+    'items_list'            => __( 'Items list', 'text_domain' ),
+    'items_list_navigation' => __( 'Items list navigation', 'text_domain' ),
+    'filter_items_list'     => __( 'Filter items list', 'text_domain' ),
+  );
+  $args = array(
+    'label'                 => __( 'Site', 'text_domain' ),
+    'description'           => __( 'Site Description', 'text_domain' ),
+    'labels'                => $labels,
+    'supports'              => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
+    //'taxonomies'            => array( 'category', 'post_tag' ),
+    'hierarchical'          => false,
+    'public'                => true,
+    'show_ui'               => true,
+    'show_in_menu'          => true,
+    'menu_position'         => 5,
+    'show_in_admin_bar'     => true,
+    'show_in_nav_menus'     => true,
+    'can_export'            => true,
+    'has_archive'           => true,
+    'exclude_from_search'   => false,
+    'publicly_queryable'    => true,
+    'capability_type'       => 'page',
+    'menu_icon'             => 'dashicons-location-alt',
+  );
+  register_post_type( 'site', $args );
+
+}
+add_action( 'init', __NAMESPACE__ . '\\sites_post_type', 0 );
+
+// Register Course Custom Post Type
+function testimonials_post_type() {
+
+  $labels = array(
+    'name'                  => _x( 'Testimonials', 'Post Type General Name', 'text_domain' ),
+    'singular_name'         => _x( 'Testimonial', 'Post Type Singular Name', 'text_domain' ),
+    'menu_name'             => __( 'Testimonials', 'text_domain' ),
+    'name_admin_bar'        => __( 'Post Type', 'text_domain' ),
+    'archives'              => __( 'Testimonial Archives', 'text_domain' ),
+    'attributes'            => __( 'Testimonial Attributes', 'text_domain' ),
+    'parent_item_colon'     => __( 'Parent Testimonial:', 'text_domain' ),
+    'all_items'             => __( 'All Testimonials', 'text_domain' ),
+    'add_new_item'          => __( 'Add New Testimonial', 'text_domain' ),
+    'add_new'               => __( 'Add New Testimonial', 'text_domain' ),
+    'new_item'              => __( 'New Testimonial', 'text_domain' ),
+    'edit_item'             => __( 'Edit Testimonial', 'text_domain' ),
+    'update_item'           => __( 'Update Testimonial', 'text_domain' ),
+    'view_item'             => __( 'View Testimonial', 'text_domain' ),
+    'view_items'            => __( 'View Testimonials', 'text_domain' ),
+    'search_items'          => __( 'Search Testimonial', 'text_domain' ),
+    'not_found'             => __( 'Not found', 'text_domain' ),
+    'not_found_in_trash'    => __( 'Not found in Trash', 'text_domain' ),
+    'featured_image'        => __( 'Featured Image', 'text_domain' ),
+    'set_featured_image'    => __( 'Set featured image', 'text_domain' ),
+    'remove_featured_image' => __( 'Remove featured image', 'text_domain' ),
+    'use_featured_image'    => __( 'Use as featured image', 'text_domain' ),
+    'insert_into_item'      => __( 'Insert into item', 'text_domain' ),
+    'uploaded_to_this_item' => __( 'Uploaded to this item', 'text_domain' ),
+    'items_list'            => __( 'Items list', 'text_domain' ),
+    'items_list_navigation' => __( 'Items list navigation', 'text_domain' ),
+    'filter_items_list'     => __( 'Filter items list', 'text_domain' ),
+  );
+  $args = array(
+    'label'                 => __( 'Testimonial', 'text_domain' ),
+    'description'           => __( 'Testimonial Description', 'text_domain' ),
+    'labels'                => $labels,
+    'supports'              => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
+    //'taxonomies'            => array( 'category', 'post_tag' ),
+    'hierarchical'          => false,
+    'public'                => true,
+    'show_ui'               => true,
+    'show_in_menu'          => true,
+    'menu_position'         => 5,
+    'show_in_admin_bar'     => true,
+    'show_in_nav_menus'     => true,
+    'can_export'            => true,
+    'has_archive'           => true,
+    'exclude_from_search'   => false,
+    'publicly_queryable'    => true,
+    'capability_type'       => 'page',
+    'menu_icon'             => 'dashicons-megaphone',
+  );
+  register_post_type( 'testimonial', $args );
+
+}
+add_action( 'init', __NAMESPACE__ . '\\testimonials_post_type', 0 );
+
+// Register Teacher Custom Post Type
+function teachers_post_type() {
+
+  $labels = array(
+    'name'                  => _x( 'Teachers', 'Post Type General Name', 'text_domain' ),
+    'singular_name'         => _x( 'Teacher', 'Post Type Singular Name', 'text_domain' ),
+    'menu_name'             => __( 'Teachers', 'text_domain' ),
+    'name_admin_bar'        => __( 'Post Type', 'text_domain' ),
+    'archives'              => __( 'Teacher Archives', 'text_domain' ),
+    'attributes'            => __( 'Teacher Attributes', 'text_domain' ),
+    'parent_item_colon'     => __( 'Parent Teacher:', 'text_domain' ),
+    'all_items'             => __( 'All Teachers', 'text_domain' ),
+    'add_new_item'          => __( 'Add New Teacher', 'text_domain' ),
+    'add_new'               => __( 'Add New Teacher', 'text_domain' ),
+    'new_item'              => __( 'New Teacher', 'text_domain' ),
+    'edit_item'             => __( 'Edit Teacher', 'text_domain' ),
+    'update_item'           => __( 'Update Teacher', 'text_domain' ),
+    'view_item'             => __( 'View Teacher', 'text_domain' ),
+    'view_items'            => __( 'View Teachers', 'text_domain' ),
+    'search_items'          => __( 'Search Teacher', 'text_domain' ),
+    'not_found'             => __( 'Not found', 'text_domain' ),
+    'not_found_in_trash'    => __( 'Not found in Trash', 'text_domain' ),
+    'featured_image'        => __( 'Featured Image', 'text_domain' ),
+    'set_featured_image'    => __( 'Set featured image', 'text_domain' ),
+    'remove_featured_image' => __( 'Remove featured image', 'text_domain' ),
+    'use_featured_image'    => __( 'Use as featured image', 'text_domain' ),
+    'insert_into_item'      => __( 'Insert into item', 'text_domain' ),
+    'uploaded_to_this_item' => __( 'Uploaded to this item', 'text_domain' ),
+    'items_list'            => __( 'Items list', 'text_domain' ),
+    'items_list_navigation' => __( 'Items list navigation', 'text_domain' ),
+    'filter_items_list'     => __( 'Filter items list', 'text_domain' ),
+  );
+  $args = array(
+    'label'                 => __( 'Teacher', 'text_domain' ),
+    'description'           => __( 'Teacher Description', 'text_domain' ),
+    'labels'                => $labels,
+    'supports'              => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
+    //'taxonomies'            => array( 'category', 'post_tag' ),
+    'hierarchical'          => false,
+    'public'                => true,
+    'show_ui'               => true,
+    'show_in_menu'          => true,
+    'menu_position'         => 5,
+    'show_in_admin_bar'     => true,
+    'show_in_nav_menus'     => true,
+    'can_export'            => true,
+    'has_archive'           => true,
+    'exclude_from_search'   => false,
+    'publicly_queryable'    => true,
+    'capability_type'       => 'page',
+    'menu_icon'             => 'dashicons-universal-access',
+  );
+  register_post_type( 'teacher', $args );
+
+}
+add_action( 'init', __NAMESPACE__ . '\\teachers_post_type', 0 );

@@ -1,0 +1,23 @@
+.content-team{
+	.team-member{
+		.member-info{
+			text-align: center;
+			padding: 2rem 1rem;
+			@include media-breakpoint-up(md) {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+			.member-name{
+				@extend .h4;
+			}
+		}
+		.member-img{
+			height: 280px;
+			@include media-breakpoint-up(md) {
+				height: $featured-course-height;
+			}
+		}
+	}
+}

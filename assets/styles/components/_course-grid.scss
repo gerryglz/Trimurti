@@ -1,0 +1,75 @@
+.course-grid{
+	padding-top: 1rem;
+	padding-bottom: 2rem;
+	.grid-item{
+		@extend .card;
+		border: none;
+		box-shadow: 1px 3px 20px #888888;
+		margin-bottom: 1rem;
+		.item-meta{
+			position: relative;
+			height: 280px;
+			.item-availability{
+				position: absolute;
+				top: 0;
+				right: 0;
+				background: $primary;
+				p{
+					margin: 0;
+					padding: 0.5rem 1rem;
+					color: $white;
+					font-weight: 300;
+				}
+			}
+			.item-info{
+				position: absolute;
+				width: 100%;
+				bottom: 0;
+				left: 0;
+				background: $secondary;
+				color: $white;
+				padding: 1rem;
+				.item-location{
+					@extend .h5;
+					margin: 0;
+					padding-bottom: 0.5rem;
+				}
+				.item-title{
+					@extend .h6;
+					margin: 0;
+				}
+			}
+		}
+		.item-desc{
+			text-align: center;
+			padding: 1rem;
+			min-height: 315px;
+			p{
+				text-align: left;
+			}
+			i{
+				color: $secondary;
+				padding-right: 0.5rem;
+			}
+			.item-type{
+				color: $secondary;
+				font-weight: 700;
+			}
+			.item-discipline{
+				font-weight: 600;
+			}
+			.item-date{
+				font-weight: 300;
+			}
+			.item-duration{
+				font-weight: 300;
+			}
+			.item-location{
+				font-weight: 300;
+			}
+			.item-price{
+				font-weight: 300;
+			}
+		}
+	}
+}

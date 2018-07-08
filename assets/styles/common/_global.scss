@@ -1,5 +1,6 @@
 body{
 	font-family: 'Open Sans', sans-serif;
+	overflow-x: hidden;
 }
 
 .section-header{
@@ -8,7 +9,10 @@ body{
 	position: relative;
 	margin: 2rem 0;
 	padding-bottom: 0.5rem;
-	&:after{
+	@include media-breakpoint-down(md) {
+		font-size: 1.5rem;
+	}
+	&:after{	
 		content: '';
 		height: 1px;
 		position: absolute;
@@ -17,9 +21,36 @@ body{
 		transform: translateX(-50%);
 		width: 400px;
 		background: $secondary;
+		@include media-breakpoint-down(md) {
+			width: 90%;
+		}
+	}
+}
+
+.section{
+	@extend .col-12;
+	padding-bottom: 2rem;
+	.section-description{
+		text-align: center;
+		padding: 1rem;
+		@include media-breakpoint-up(md) {
+			width: 80%;
+			margin: 0 auto;
+		}
+	}
+}
+
+.content-desc{
+	@include media-breakpoint-up(md) {
+		width: 50%;
+		margin: 0 auto;
 	}
 }
 
 .bg-grey{
-	background: #efefef;
+	background: $bg-gray;
+}
+
+.weight-medium{
+	font-weight: 600;
 }

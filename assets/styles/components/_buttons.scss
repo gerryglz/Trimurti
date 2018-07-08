@@ -3,4 +3,11 @@
 	text-transform: uppercase;
 	border-radius: 2rem;
 	padding: .375rem 1.5rem;
+	letter-spacing: 1px;
+	&.btn-outline-secondary{
+		color: $secondary !important;
+		@include hover-focus {
+			color: $white !important;
+		}
+	}
 }

@@ -1,0 +1,33 @@
+.testimonials{
+	.section-header{
+		margin-bottom: 1rem;
+	}
+	.testimonial{
+		height: 300px;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		background-color: $bg-gray;
+		position: relative;
+		.overlay{
+			width: 100%;
+			height: 100%;
+			background: -moz-linear-gradient(top, rgba($black, 0) 0%, rgba($black,0.65) 100%);
+			background: -webkit-linear-gradient(top, rgba($black,0) 0%,rgba($black,0.65) 100%);
+			background: linear-gradient(to bottom, rgba($black,0) 0%,rgba($black,0.65) 100%);
+			position: relative;
+			.testimonial-info{
+				position: absolute;
+				left: 0;
+				bottom: 2rem;
+				width: 100%;
+				text-align: center;
+				padding: 1rem;
+				.testimonial-desc{
+					color: $white;
+					text-align: center;
+				}
+			}
+		}
+	}
+}

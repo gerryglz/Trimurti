@@ -6,11 +6,14 @@
 		}
 		@include media-breakpoint-down(sm) {
 			margin-bottom: 1.5rem;
+			&:last-of-type{
+				margin-bottom:0;
+			}
 		}
 		.course-img{
 			background-size: cover;
 			background-position: center;
-			background-repet: no-repeat;
+			background-repeat: no-repeat;
 			height: 280px;
 			
 			@include media-breakpoint-up(md) {
