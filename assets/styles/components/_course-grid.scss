@@ -44,6 +44,7 @@
 			text-align: center;
 			padding: 1rem;
 			min-height: 315px;
+			position: relative;
 			p{
 				text-align: left;
 			}
@@ -66,6 +67,13 @@
 			}
 			.item-location{
 				font-weight: 300;
+			}
+			.item-logo{
+				position: absolute;
+				width: 4rem;
+				height: 4rem;
+				right: 1rem;
+				top: 55%;
 			}
 			.item-price{
 				font-weight: 300;

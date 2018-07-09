@@ -26,6 +26,18 @@
             $(".nav-primary").removeClass("scrolled");
           }
         });
+        $('.collapse').on('show.bs.collapse', function () {
+          var child = $(this);
+          var icon = child.parent('.card').find('.card-header').find('button').find('i');
+          icon.addClass('fa-chevron-up');
+          icon.removeClass('fa-chevron-down');
+        });
+        $('.collapse').on('hide.bs.collapse', function () {
+          var child = $(this);
+          var icon = child.parent('.card').find('.card-header').find('button').find('i');
+          icon.removeClass('fa-chevron-up');
+          icon.addClass('fa-chevron-down');
+        });
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired

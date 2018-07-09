@@ -39,6 +39,9 @@
 					<p class="item-duration"><i class="fas fa-sun"></i><?php if (get_field('course_duration')) { echo get_field('course_duration');} ?></p>
 					<p class="item-location"><i class="fas fa-map-marker-alt"></i><?php if (get_field('course_venue')) { echo get_field('course_venue');} ?></p>
 					<p class="item-price"><i class="fas fa-dollar-sign"></i> <?php if (get_field('course_price')) { echo money_format("Starting from $%i USD", $course_price);} ?></p>
+					<?php if (get_field('course_logo')) : ?>
+						<img src="<?php echo get_field('course_logo'); ?>" alt="<?php echo the_title(); ?>" class="item-logo">
+					<?php endif; ?>
 					<a href="<?php the_permalink(); ?>" class="btn btn-secondary mx-auto">See Course</a>
 				</div>
 			</div>

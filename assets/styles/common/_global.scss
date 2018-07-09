@@ -54,3 +54,23 @@ body{
 .weight-medium{
 	font-weight: 600;
 }
+
+.content-site{
+	@include media-breakpoint-down(sm) {
+		margin-top: 1.5rem;
+		margin-bottom: 1.5rem;
+	}
+	.site-title{
+		@extend .h4;
+		border-bottom:1px dashed #6c757d;
+		@include media-breakpoint-down(md) {
+			font-size: 1.5rem;
+		}
+		@include media-breakpoint-down(sm) {
+			font-size: 1.25rem;
+		}
+	}
+	address, a{
+		font-size: 0.875rem;
+	}
+}

@@ -241,6 +241,46 @@ if(function_exists("register_field_group"))
         'formatting' => 'html',
         'maxlength' => '',
       ),
+      array (
+        'key' => 'field_5b425f61fed34',
+        'label' => 'Course Logo',
+        'name' => 'course_logo',
+        'type' => 'image',
+        'instructions' => 'Select Course Logo',
+        'save_format' => 'url',
+        'preview_size' => 'full',
+        'library' => 'all',
+      ),
+      array (
+        'key' => 'field_5b42abb4fe095',
+        'label' => 'Course Accommodation Options',
+        'name' => 'course_accommodation_options',
+        'type' => 'wysiwyg',
+        'instructions' => 'Add course accommodation options',
+        'default_value' => '',
+        'toolbar' => 'full',
+        'media_upload' => 'yes',
+      ),
+      array (
+        'key' => 'field_5b42afb4fe095',
+        'label' => 'Payment and Application',
+        'name' => 'course_payment_application',
+        'type' => 'wysiwyg',
+        'instructions' => 'Add course payment and application',
+        'default_value' => '',
+        'toolbar' => 'full',
+        'media_upload' => 'yes',
+      ),
+      array (
+        'key' => 'field_5b42afb4fy095',
+        'label' => 'Course Info',
+        'name' => 'course_info',
+        'type' => 'wysiwyg',
+        'instructions' => 'Add course info',
+        'default_value' => '',
+        'toolbar' => 'full',
+        'media_upload' => 'yes',
+      ),
     ),
     'location' => array (
       array (
@@ -378,7 +418,7 @@ function home_slide_post_type() {
 add_action( 'init', __NAMESPACE__ . '\\home_slide_post_type', 0 );
 
 
-// Register Course Custom Post Type
+// Register Site Custom Post Type
 function sites_post_type() {
 
   $labels = array(
@@ -548,3 +588,143 @@ function teachers_post_type() {
 
 }
 add_action( 'init', __NAMESPACE__ . '\\teachers_post_type', 0 );
+
+if(function_exists("register_field_group"))
+{
+  register_field_group(array (
+    'id' => 'acf_teacher',
+    'title' => 'Teacher',
+    'fields' => array (
+      array (
+        'key' => 'field_5b399bc57803a',
+        'label' => 'Teacher Course',
+        'name' => 'teacher_course',
+        'type' => 'text',
+        'instructions' => 'Add course',
+        'default_value' => '',
+        'placeholder' => '',
+        'prepend' => '',
+        'append' => '',
+        'formatting' => 'html',
+        'maxlength' => '',
+      ),
+    ),
+    'location' => array (
+      array (
+        array (
+          'param' => 'post_type',
+          'operator' => '==',
+          'value' => 'teacher',
+          'order_no' => 0,
+          'group_no' => 0,
+        ),
+      ),
+    ),
+    'options' => array (
+      'position' => 'normal',
+      'layout' => 'no_box',
+      'hide_on_screen' => array (
+      ),
+    ),
+    'menu_order' => 0,
+  ));
+}
+
+// Register FAQ Custom Post Type
+function faq_post_type() {
+
+  $labels = array(
+    'name'                  => _x( 'FAQs', 'Post Type General Name', 'text_domain' ),
+    'singular_name'         => _x( 'FAQ', 'Post Type Singular Name', 'text_domain' ),
+    'menu_name'             => __( 'FAQs', 'text_domain' ),
+    'name_admin_bar'        => __( 'Post Type', 'text_domain' ),
+    'archives'              => __( 'FAQ Archives', 'text_domain' ),
+    'attributes'            => __( 'FAQ Attributes', 'text_domain' ),
+    'parent_item_colon'     => __( 'Parent FAQ:', 'text_domain' ),
+    'all_items'             => __( 'All FAQs', 'text_domain' ),
+    'add_new_item'          => __( 'Add New FAQ', 'text_domain' ),
+    'add_new'               => __( 'Add New FAQ', 'text_domain' ),
+    'new_item'              => __( 'New FAQ', 'text_domain' ),
+    'edit_item'             => __( 'Edit FAQ', 'text_domain' ),
+    'update_item'           => __( 'Update FAQ', 'text_domain' ),
+    'view_item'             => __( 'View FAQ', 'text_domain' ),
+    'view_items'            => __( 'View FAQs', 'text_domain' ),
+    'search_items'          => __( 'Search FAQ', 'text_domain' ),
+    'not_found'             => __( 'Not found', 'text_domain' ),
+    'not_found_in_trash'    => __( 'Not found in Trash', 'text_domain' ),
+    'featured_image'        => __( 'Featured Image', 'text_domain' ),
+    'set_featured_image'    => __( 'Set featured image', 'text_domain' ),
+    'remove_featured_image' => __( 'Remove featured image', 'text_domain' ),
+    'use_featured_image'    => __( 'Use as featured image', 'text_domain' ),
+    'insert_into_item'      => __( 'Insert into item', 'text_domain' ),
+    'uploaded_to_this_item' => __( 'Uploaded to this item', 'text_domain' ),
+    'items_list'            => __( 'Items list', 'text_domain' ),
+    'items_list_navigation' => __( 'Items list navigation', 'text_domain' ),
+    'filter_items_list'     => __( 'Filter items list', 'text_domain' ),
+  );
+  $args = array(
+    'label'                 => __( 'FAQ', 'text_domain' ),
+    'description'           => __( 'FAQ Description', 'text_domain' ),
+    'labels'                => $labels,
+    'supports'              => array( 'title', 'editor', ),
+    //'taxonomies'            => array( 'category', 'post_tag' ),
+    'hierarchical'          => false,
+    'public'                => true,
+    'show_ui'               => true,
+    'show_in_menu'          => true,
+    'menu_position'         => 5,
+    'show_in_admin_bar'     => true,
+    'show_in_nav_menus'     => true,
+    'can_export'            => true,
+    'has_archive'           => true,
+    'exclude_from_search'   => false,
+    'publicly_queryable'    => true,
+    'capability_type'       => 'page',
+    'menu_icon'             => 'dashicons-editor-paste-text',
+  );
+  register_post_type( 'faq', $args );
+
+}
+add_action( 'init', __NAMESPACE__ . '\\faq_post_type', 0 );
+
+
+if(function_exists("register_field_group"))
+{
+  register_field_group(array (
+    'id' => 'acf_faq',
+    'title' => 'FAQ',
+    'fields' => array (
+      array (
+        'key' => 'field_5b399bh57803a',
+        'label' => 'FAQ Type',
+        'name' => 'faq_type',
+        'type' => 'radio',
+        'instructions' => 'Select FAQ type',
+        'choices' => array (
+          'general' => 'General and Mexico FAQs',
+          'yoga' => 'Yoga FAQs',
+        ),
+        'default_value' => 'no',
+        'layout' => 'vertical',
+      ),
+    ),
+    'location' => array (
+      array (
+        array (
+          'param' => 'post_type',
+          'operator' => '==',
+          'value' => 'faq',
+          'order_no' => 0,
+          'group_no' => 0,
+        ),
+      ),
+    ),
+    'options' => array (
+      'position' => 'normal',
+      'layout' => 'no_box',
+      'hide_on_screen' => array (
+      ),
+    ),
+    'menu_order' => 0,
+  ));
+}
