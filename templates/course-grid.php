@@ -21,7 +21,7 @@
 		?>
 		<div class="col-12 col-md-6 col-lg-4">
 			<div class="grid-item">
-				<div class="item-meta" style="background-image: url('https://placeimg.com/800/400/any');">
+				<div class="item-meta" style="background-image: url('<?php echo the_post_thumbnail_url(); ?>')">
 					<?php if ($vacancy <= 5) : ?>
 						<div class="item-availability">
 							<p><?php echo $vacancy; ?> seats left</p>

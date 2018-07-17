@@ -242,7 +242,7 @@ if(function_exists("register_field_group"))
         'maxlength' => '',
       ),
       array (
-        'key' => 'field_5b425f61fed34',
+        'key' => 'field_5b425h61fed38',
         'label' => 'Course Logo',
         'name' => 'course_logo',
         'type' => 'image',
@@ -280,6 +280,56 @@ if(function_exists("register_field_group"))
         'default_value' => '',
         'toolbar' => 'full',
         'media_upload' => 'yes',
+      ),
+      array (
+        'key' => 'field_5b425f61fed31',
+        'label' => 'Course Image One',
+        'name' => 'course_image_one',
+        'type' => 'image',
+        'instructions' => 'Select Image',
+        'save_format' => 'url',
+        'preview_size' => 'thumbnail',
+        'library' => 'all',
+      ),
+      array (
+        'key' => 'field_5b425f61fed32',
+        'label' => 'Course Image Two',
+        'name' => 'course_image_two',
+        'type' => 'image',
+        'instructions' => 'Select Image',
+        'save_format' => 'url',
+        'preview_size' => 'thumbnail',
+        'library' => 'all',
+      ),
+      array (
+        'key' => 'field_5b425f61fed33',
+        'label' => 'Course Image Three',
+        'name' => 'course_image_three',
+        'type' => 'image',
+        'instructions' => 'Select Image',
+        'save_format' => 'url',
+        'preview_size' => 'thumbnail',
+        'library' => 'all',
+      ),
+      array (
+        'key' => 'field_5b425f61fed34',
+        'label' => 'Course Image Four',
+        'name' => 'course_image_four',
+        'type' => 'image',
+        'instructions' => 'Select Image',
+        'save_format' => 'url',
+        'preview_size' => 'thumbnail',
+        'library' => 'all',
+      ),
+      array (
+        'key' => 'field_5b425f61fed35',
+        'label' => 'Course Image Five',
+        'name' => 'course_image_five',
+        'type' => 'image',
+        'instructions' => 'Select Image',
+        'save_format' => 'url',
+        'preview_size' => 'thumbnail',
+        'library' => 'all',
       ),
     ),
     'location' => array (
@@ -714,6 +764,104 @@ if(function_exists("register_field_group"))
           'param' => 'post_type',
           'operator' => '==',
           'value' => 'faq',
+          'order_no' => 0,
+          'group_no' => 0,
+        ),
+      ),
+    ),
+    'options' => array (
+      'position' => 'normal',
+      'layout' => 'no_box',
+      'hide_on_screen' => array (
+      ),
+    ),
+    'menu_order' => 0,
+  ));
+}
+
+// Register Video Custom Post Type
+function video_post_type() {
+
+  $labels = array(
+    'name'                  => _x( 'Videos', 'Post Type General Name', 'text_domain' ),
+    'singular_name'         => _x( 'Video', 'Post Type Singular Name', 'text_domain' ),
+    'menu_name'             => __( 'Videos', 'text_domain' ),
+    'name_admin_bar'        => __( 'Post Type', 'text_domain' ),
+    'archives'              => __( 'Video Archives', 'text_domain' ),
+    'attributes'            => __( 'Video Attributes', 'text_domain' ),
+    'parent_item_colon'     => __( 'Parent Video:', 'text_domain' ),
+    'all_items'             => __( 'All Videos', 'text_domain' ),
+    'add_new_item'          => __( 'Add New Video', 'text_domain' ),
+    'add_new'               => __( 'Add New Video', 'text_domain' ),
+    'new_item'              => __( 'New Video', 'text_domain' ),
+    'edit_item'             => __( 'Edit Video', 'text_domain' ),
+    'update_item'           => __( 'Update Video', 'text_domain' ),
+    'view_item'             => __( 'View Video', 'text_domain' ),
+    'view_items'            => __( 'View Videos', 'text_domain' ),
+    'search_items'          => __( 'Search Video', 'text_domain' ),
+    'not_found'             => __( 'Not found', 'text_domain' ),
+    'not_found_in_trash'    => __( 'Not found in Trash', 'text_domain' ),
+    'featured_image'        => __( 'Featured Image', 'text_domain' ),
+    'set_featured_image'    => __( 'Set featured image', 'text_domain' ),
+    'remove_featured_image' => __( 'Remove featured image', 'text_domain' ),
+    'use_featured_image'    => __( 'Use as featured image', 'text_domain' ),
+    'insert_into_item'      => __( 'Insert into item', 'text_domain' ),
+    'uploaded_to_this_item' => __( 'Uploaded to this item', 'text_domain' ),
+    'items_list'            => __( 'Items list', 'text_domain' ),
+    'items_list_navigation' => __( 'Items list navigation', 'text_domain' ),
+    'filter_items_list'     => __( 'Filter items list', 'text_domain' ),
+  );
+  $args = array(
+    'label'                 => __( 'Video', 'text_domain' ),
+    'description'           => __( 'Video Description', 'text_domain' ),
+    'labels'                => $labels,
+    'supports'              => array( 'title' ),
+    //'taxonomies'            => array( 'category', 'post_tag' ),
+    'hierarchical'          => false,
+    'public'                => true,
+    'show_ui'               => true,
+    'show_in_menu'          => true,
+    'menu_position'         => 5,
+    'show_in_admin_bar'     => true,
+    'show_in_nav_menus'     => true,
+    'can_export'            => true,
+    'has_archive'           => true,
+    'exclude_from_search'   => false,
+    'publicly_queryable'    => true,
+    'capability_type'       => 'page',
+    'menu_icon'             => 'dashicons-video-alt3',
+  );
+  register_post_type( 'video', $args );
+
+}
+add_action( 'init', __NAMESPACE__ . '\\video_post_type', 0 );
+
+if(function_exists("register_field_group"))
+{
+  register_field_group(array (
+    'id' => 'acf_video',
+    'title' => 'Video',
+    'fields' => array (
+      array (
+        'key' => 'field_5b399bc57763a',
+        'label' => 'Video ID',
+        'name' => 'video_id',
+        'type' => 'text',
+        'instructions' => 'Add course',
+        'default_value' => '',
+        'placeholder' => 'JEgrZvFcMdQ',
+        'prepend' => '',
+        'append' => '',
+        'formatting' => 'html',
+        'maxlength' => '',
+      ),
+    ),
+    'location' => array (
+      array (
+        array (
+          'param' => 'post_type',
+          'operator' => '==',
+          'value' => 'video',
           'order_no' => 0,
           'group_no' => 0,
         ),

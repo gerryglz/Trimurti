@@ -23,9 +23,84 @@
   			</div>
   		</div>
   	</div>
+
     <div class="container">
       <?php the_content(); ?>
     </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+
+          <div id="carouselExampleIndicators" class="carousel slide content-slider" data-ride="carousel">
+
+            <ol class="carousel-indicators">
+              <?php if (get_field('course_image_one')) : ?>
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <?php endif; ?>
+              <?php if (get_field('course_image_two')) : ?>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <?php endif; ?>
+              <?php if (get_field('course_image_three')) : ?>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+              <?php endif; ?>
+              <?php if (get_field('course_image_four')) : ?>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+              <?php endif; ?>
+              <?php if (get_field('course_image_five')) : ?>
+                <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+              <?php endif; ?>
+             
+            </ol>
+
+            <div class="carousel-inner">
+
+              <?php if (get_field('course_image_one')) : ?>
+                <div class="carousel-item active">
+                  <div class="slide-image" style="background-image: url('<?php echo get_field('course_image_one'); ?>');"></div>
+                </div>
+              <?php endif; ?>
+              
+              <?php if (get_field('course_image_two')) : ?>
+                <div class="carousel-item">
+                  <div class="slide-image" style="background-image: url('<?php echo get_field('course_image_two'); ?>');"></div>
+                </div>
+              <?php endif; ?>
+
+              <?php if (get_field('course_image_three')) : ?>
+                <div class="carousel-item">
+                  <div class="slide-image" style="background-image: url('<?php echo get_field('course_image_three'); ?>');"></div>
+                </div>
+              <?php endif; ?>
+
+              <?php if (get_field('course_image_four')) : ?>
+                <div class="carousel-item">
+                  <div class="slide-image" style="background-image: url('<?php echo get_field('course_image_four'); ?>');"></div>
+                </div>
+              <?php endif; ?>
+
+              <?php if (get_field('course_image_five')) : ?>
+                <div class="carousel-item">
+                  <div class="slide-image" style="background-image: url('<?php echo get_field('course_image_five'); ?>');"></div>
+                </div>
+              <?php endif; ?>
+
+
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    
     <div class="container-fluid px-0">
       <div class="row no-gutters">
         <div class="col">

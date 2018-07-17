@@ -25,10 +25,9 @@
 		<div class="col-12 col-md-8 <?php if($count%2 === 1) { echo 'order-md-2'; } ?>"">
 			<div class="site-info">
 				<p class="site-title"><?php echo the_title(); ?></p>
-				<p class="site-shortdesc">Where the jungle meets the ocean</p>
+				<p class="site-shortdesc"><?php echo wp_strip_all_tags( get_the_excerpt(), true ); ?></p>
 				<div class="site-desc">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo quod at omnis totam perferendis nihil asperiores odio. Perspiciatis, voluptate, praesentium! Quod in omnis fugiat quidem pariatur dolorem minus maiores dignissimos.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia odio nisi qui, labore quo aliquam quisquam. Rerum mollitia, nostrum excepturi, nisi eveniet exercitationem cupiditate expedita eligendi molestiae dolores aliquid iusto.</p>
+					<?php the_content(); ?>
 				</div>
 				<a href="<?php echo get_home_url(); ?>/courses" class="btn btn-secondary">Upcoming Courses</a>
 			</div>

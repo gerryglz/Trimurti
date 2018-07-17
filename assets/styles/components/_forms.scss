@@ -13,3 +13,42 @@
   @extend .btn;
   @extend .btn-secondary;
 }
+
+.wpcf7-form{
+	input{
+		&.form-control{
+			border: none;
+			border-radius: 0;
+			border-bottom: 1px solid #888;
+			padding: 0.5rem;
+			height: 55px !important;
+		}
+	}
+	.wpcf7-radio{
+		padding: 0.5rem;
+		border: none;
+		input{
+		}
+	}
+	select{
+		&.form-control{
+			border: none;
+			border-radius: 0;
+			border-bottom: 1px solid #888;
+			padding: 0.5rem;
+			height: 55px !important;
+			-webkit-appearance: none;
+			background-image: url('../images/down.svg');
+			background-size: 1rem;
+			background-position: 98% center;
+			background-repeat: no-repeat;
+		}
+	}
+	textarea{
+		border: 1px solid #888;
+		border-radius: 0;
+		padding: 1rem;
+		height: 180px;
+		margin-top: 1rem;
+	}
+}
