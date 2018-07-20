@@ -128,6 +128,16 @@ if(function_exists("register_field_group"))
         'layout' => 'vertical',
       ),
       array (
+        'key' => 'field_5b42afc7fy095',
+        'label' => 'Course Featured Description',
+        'name' => 'course_featured_desc',
+        'type' => 'wysiwyg',
+        'instructions' => 'Add course description',
+        'default_value' => '',
+        'toolbar' => 'full',
+        'media_upload' => 'yes',
+      ),
+      array (
         'key' => 'field_5b399bc59503a',
         'label' => 'Course Price',
         'name' => 'course_price',

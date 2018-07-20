@@ -34,7 +34,7 @@
 					<p class="course-title"><?php echo the_title(); ?></p>
 					<p class="course-style"><?php if (get_field('course_style')) { echo get_field('course_style');} ?></p>
 					<p class="course-price"><?php if (get_field('course_price')) { echo money_format("Starting from $%i USD", $course_price);} ?></p>
-					<p class="course-description"><?php echo wp_strip_all_tags( get_the_excerpt(), true ); ?></p>
+					<div class="course-description"><?php if (get_field('course_featured_desc')) { echo get_field('course_featured_desc');} ?></div>
 					<a class="btn btn-secondary" href="<?php the_permalink(); ?>">Upcoming Courses</a>
 				</div>
 			</div>
