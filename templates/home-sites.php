@@ -26,7 +26,7 @@
 				<div class="overlay">
 					<div class="site-info">
 						<p class="site-title"><?php echo the_title(); ?></p>
-						<a href="<?php the_permalink(); ?>" class="btn btn-secondary">Explore</a>
+						<a href="<?php echo get_home_url(); ?>/courses" class="btn btn-secondary">Explore</a>
 					</div>
 				</div>
 			</div>

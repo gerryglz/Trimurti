@@ -2,6 +2,8 @@
 	<?php 
 		$date = get_field('course_date');
 		$date = new DateTime($date);
+    $teachers = get_field('course_teachers');
+    $count = 0;
 	?>
   <section <?php post_class(); ?>>
   	<div class="container-fluid px-0">
@@ -162,13 +164,39 @@
           </div>
         </div>
       </div>
-      <div class="row no-gutters">
-        <div class="col">
-          
-        </div>
-      </div>
     </div>
   </section>
+
+  <?php if($teachers): ?>
+    <div class="container-fluid pt-3 px-0 content-team">
+      <div class="row no-gutters">
+        <div class="col">
+          <p class="section-header">Teachers</p>
+        </div>
+      </div>
+      <?php foreach( $teachers as $post): // variable must be called $post (IMPORTANT) ?>
+      <?php setup_postdata($post); ?>
+      <?php $count ++; ?>
+        <div class="row no-gutters team-member">
+          <div class="col-12 col-md-6 <?php if($count%2 === 1) { echo 'order-md-2'; } ?> <?php if($count%2 === 0) { echo 'bg-grey'; } ?>">
+            <div class="member-info">
+              <p class="member-name"><?php echo the_title(); ?></p>
+              <p class="member-shortdesc"><p class="course-description"><?php echo wp_strip_all_tags( get_the_excerpt(), true ); ?></p></p>
+              <a href="<?php the_permalink(); ?>" class="btn btn-outline-secondary">Read More</a>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 <?php if($count%2 === 1) { echo 'order-md-1'; } ?>">
+            <div class="member-img" style="background-image: url('<?php echo the_post_thumbnail_url(); ?>')">
+              </div>
+          </div>
+        </div>
+      <?php endforeach; ?>
+    <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
+
+
+    </div>
+  <?php endif; ?>
+
 <?php endwhile; ?>
-<?php get_template_part('templates/content' ,'team'); ?>
+<!-- <?php //get_template_part('templates/content' ,'team'); ?> -->
 <?php get_template_part('templates/testimonials'); ?>

@@ -1,4 +1,10 @@
 <?php while (have_posts()) : the_post(); ?>
+  <?php 
+    $courses = get_field('teacher_course');
+    $courses_length = count($courses); 
+    $i = 0;
+  ?>
+
   <section <?php post_class(); ?>>
   	<div class="container-fluid px-0">
   		<div class="row no-gutters">
@@ -7,7 +13,20 @@
   					<div class="overlay">
   						<div class="header-info">
   							<p class="header-location"><?php echo the_title(); ?></p>
-                <p class="header-title"><?php if (get_field('teacher_course')) { echo get_field('teacher_course');} ?></p>
+                <p class="header-title">
+                  <?php if($courses): ?>
+                    <?php foreach( $courses as $post): // variable must be called $post (IMPORTANT) ?>
+                    <?php setup_postdata($post); ?>
+                      <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                      <?php echo $i < $courses_length - 1 ? ', ' : '' ; ?>
+                      
+                      <?php //if (get_field('teacher_course')) { echo get_field('teacher_course');} ?>
+
+                    <?php $i ++; ?>
+                    <?php endforeach; ?>
+                    <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
+                  <?php endif; ?>
+                </p>
   						</div>
   					</div>
   				</div>

@@ -341,6 +341,28 @@ if(function_exists("register_field_group"))
         'preview_size' => 'thumbnail',
         'library' => 'all',
       ),
+      array(
+        'key' => 'field_5bd89030197ad',
+        'label' => 'Course Teacher',
+        'name' => 'course_teachers',
+        'type' => 'post_object',
+        'instructions' => 'Choose Teacher',
+        'required' => 0,
+        'conditional_logic' => 0,
+        'wrapper' => array(
+            'width' => '',
+            'class' => '',
+            'id' => '',
+        ),
+        'post_type' => array(
+            0 => 'teacher',
+        ),
+        'taxonomy' => '',
+        'allow_null' => 0,
+        'multiple' => 1,
+        'return_format' => 'object',
+        'ui' => 1,
+      ),
     ),
     'location' => array (
       array (
@@ -655,18 +677,27 @@ if(function_exists("register_field_group"))
     'id' => 'acf_teacher',
     'title' => 'Teacher',
     'fields' => array (
-      array (
-        'key' => 'field_5b399bc57803a',
+      array(
+        'key' => 'field_5bd897b3bb799',
         'label' => 'Teacher Course',
         'name' => 'teacher_course',
-        'type' => 'text',
-        'instructions' => 'Add course',
-        'default_value' => '',
-        'placeholder' => '',
-        'prepend' => '',
-        'append' => '',
-        'formatting' => 'html',
-        'maxlength' => '',
+        'type' => 'post_object',
+        'instructions' => 'Add courses',
+        'required' => 0,
+        'conditional_logic' => 0,
+        'wrapper' => array(
+            'width' => '',
+            'class' => '',
+            'id' => '',
+        ),
+        'post_type' => array(
+            0 => 'course',
+        ),
+        'taxonomy' => '',
+        'allow_null' => 0,
+        'multiple' => 1,
+        'return_format' => 'object',
+        'ui' => 1,
       ),
     ),
     'location' => array (
